@@ -1,9 +1,23 @@
-﻿//Задача 3: Напишите программу, которая принимает на вход целое число 
-//из отрезка [10, 99] и показывает наибольшую цифру числа.
+﻿//Задача 4: Напишите программу, которая на вход принимает натуральное число N,
+// а на выходе показывает его цифры через запятую.
 int a = Convert.ToInt32(Console.ReadLine());
 
-if (a > 10 && a < 99){
-    if (a/10 > a%10) Console.WriteLine($"a = {a}, {a/10}");
-    else Console.WriteLine($"a = {a}, {a%10}");
+if (a > 0 ) {
+    int temp = a;
+    int i = 0 , b;
+
+    while (temp > 0)
+    {
+        temp /= 10;
+        i++;
+    }
+    //Console.WriteLine(i);
+    for (int j = i - 1 ; j >= 0; j--) {
+        b = (a / (int)Math.Pow(10, j));
+        b %= 10;
+        Console.Write($"{b}");
+        if (j > 0) Console.Write(", ");
+        
+    }
 }
-else Console.WriteLine("The number is not included in the segment");
+else Console.WriteLine("The number is not natural");
